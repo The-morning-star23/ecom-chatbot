@@ -1,140 +1,155 @@
-# E-commerce Sales Chatbot
-
-## Project Summary
-
-This project implements an interactive sales chatbot designed to enhance the user shopping experience on an e-commerce platform. It enables customers to perform product searches, explore product details, and facilitates the purchase journey via a conversational interface.
-
-The solution consists of a responsive React.js frontend that communicates with a Flask-based RESTful backend API. The backend handles user authentication, processes product search queries, and interacts with a MySQL database containing a mock inventory of 100 diverse products across categories such as electronics, books, and textiles.
-
-The chatbot interface is intuitive and responsive, supporting desktop, tablet, and mobile devices. It features session management to maintain user state, a conversation reset option, and persistent chat history for later retrieval and analysis.
-
-The backend system ensures secure user login with hashed passwords and session tokens, fault-tolerant API handling, and efficient SQL querying for product data retrieval.
-
-This project demonstrates the integration of modern frontend and backend technologies to deliver a modular, maintainable, and scalable e-commerce chatbot solution.
 
 ---
 
-## Technology Stack
+# 2️⃣ Detailed Project Report
 
-- **Frontend:** React.js, HTML5, CSS3  
-- **Backend:** Python, Flask  
-- **Database:** MySQL (via MySQL Workbench)  
-- **Authentication:** Flask sessions, bcrypt for password hashing  
-- **Tools:** VS Code, PowerShell, npm, pip
+### Suggested Sections and Content
 
 ---
 
-## Features
+### Title: Development of an E-commerce Sales Chatbot
 
-- Responsive chatbot UI compatible with multiple devices  
-- Secure user authentication and session management  
-- Product search and filtering by name and category  
-- Display of product cards with images, prices, and details  
-- Conversation reset functionality  
-- Persistent chat session tracking  
+**1. Introduction**
+
+The goal was to develop a chatbot that helps users navigate and shop on an e-commerce platform. The chatbot supports product search and discovery with a conversational UI, integrated with a backend server and a product inventory database.
 
 ---
 
-## Project Structure
+**2. Technology Stack**
 
-ecommerce-chatbot/
-│
-├── backend/
-│ ├── app.py
-│ ├── models.py
-│ ├── database.py
-│ ├── requirements.txt
-│ ├── config.py
-│ └── data/
-│ └── populate_db.sql
-│
-├── frontend/
-│ ├── public/
-│ ├── src/
-│ │ ├── components/
-│ │ ├── App.js
-│ │ ├── index.js
-│ │ ├── api.js
-│ │ └── styles.css
-│ ├── package.json
-│
-│
-└── README.md
+- **Backend:** Flask (Python microframework), Flask-MySQLdb to connect to MySQL
+- **Frontend:** ReactJS with components for chat UI and login
+- **Database:** MySQL Workbench storing 100 mock product entries with fields like name, description, price, category, and image URL
+- **Tools:** VS Code, PowerShell terminal, npm for frontend package management
 
 ---
 
-## Setup and Installation
+**3. Architecture**
 
-### Backend Setup
+- **Frontend** handles user interactions, login, and chat interface.
+- **Backend API** processes user queries, fetches relevant product data, and manages sessions.
+- **Database** stores users and product details.
+- Communication uses REST APIs secured by session-based authentication.
 
-1. Navigate to the backend directory:
+---
 
-cd backend
-Create and activate a Python virtual environment:
-python -m venv venv
-.\venv\Scripts\activate    # Windows PowerShell
-source venv/bin/activate   # macOS/Linux
-Install required Python packages:
-    pip install -r requirements.txt
-Configure your MySQL database and update credentials in config.py.
+**4. Implementation Details**
 
+- Backend built with Flask and modular blueprints for auth and products.
+- Passwords hashed with bcrypt.
+- Products queried by name using SQL LIKE operator.
+- Frontend React uses Axios for API calls and maintains login state.
+- Chatbot UI accepts search queries and displays product cards with images and prices.
+- Responsive design suitable for desktop and mobile devices.
 
-Populate the MySQL database with mock data:
-    mysql -u your_username -p your_database_name < data/populate_db.sql
+---
 
-Run the Flask backend server:
-    python app.py
+**5. Sample Queries and Results**
 
+- Query: `"Product 15"`
+- Result: Displays the product card with name, description, price, category, and image.
 
-### Brontend Setup
+- Query: `"Electronics"`
+- Result: List of products filtered by the category containing "Electronics".
 
-2. Navigate to the frontend directory:
+---
 
-cd frontend
-Install npm dependencies:
-    npm install
-Start the React development server:
-    npm start
-Open your browser and go to http://localhost:3000
+**6. Challenges Faced**
 
+- Managing session continuity between React frontend and Flask backend.
+- Handling CORS and secure cookie sharing.
+- Populating database with meaningful yet mock product data.
+- Building an intuitive chat UI without complex NLP.
 
+---
 
+**7. Learnings**
 
-Sample Queries
-Search by product name:
-"Product 10"
-Displays product matching "Product 10".
+- Integration of Flask with React and MySQL for a full-stack application.
+- Handling authentication and session management in Flask with React.
+- Designing simple yet user-friendly chatbots for e-commerce.
+- Writing clean, modular code for scalability and maintenance.
 
-Search by category:
-"Electronics"
-Lists all products categorized under electronics.
+---
 
-Keyword search:
-"Book"
-Finds products with “Book” in their name or category.
+**8. Future Enhancements**
 
-Results and Demonstration
-The chatbot interface presents matched products as responsive cards, each showing:
+- Adding natural language understanding for better query parsing.
+- Shopping cart and checkout integration.
+- Persistent chat history storage and analytics.
+- User registration and password recovery flows.
 
-Product image
+---
 
-Name
+# 3️⃣ Presentation Outline (Example slide content)
 
-Price
+---
 
-Category
+### Slide 1: Title Slide  
+**Development of an E-commerce Sales Chatbot**  
+Shubh Kumar  
+Date: [Insert Date]
 
-User sessions maintain the chat state, allowing seamless multi-query interactions. Users can reset conversations at any time using the reset button.
+---
 
-Future Improvements
-Integrate Natural Language Processing (NLP) for enhanced query understanding
+### Slide 2: Project Overview  
+- Objective: Build a chatbot for e-commerce product search and purchase assistance  
+- Key features: Login, search, session continuity, product display
 
-Add shopping cart and checkout functionalities
+---
 
-Implement JWT-based authentication for improved security
+### Slide 3: Technology Stack  
+- Backend: Flask, MySQL  
+- Frontend: ReactJS  
+- Database: MySQL Workbench  
+- Tools: VS Code, PowerShell
 
-Extend chatbot capabilities to handle voice commands
+---
 
-Contact and Support
-For questions or contributions, please reach out via the GitHub repository or email.
+### Slide 4: Architecture Diagram  
+(Sketch or diagram showing React frontend, Flask backend, MySQL DB, API interaction)
 
+---
+
+### Slide 5: Implementation Details  
+- REST API design and endpoints  
+- User authentication flow  
+- Product search and display UI components
+
+---
+
+### Slide 6: Challenges & Solutions  
+- Session management between frontend & backend  
+- Data seeding of 100 products  
+- CORS & security handling
+
+---
+
+### Slide 7: Demo & Sample Queries  
+- Demonstrate login  
+- Search “Product 10”, “Electronics”  
+- Show product cards & info
+
+---
+
+### Slide 8: Learnings & Future Work  
+- Full-stack integration experience  
+- Clean modular codebase  
+- Plan: NLP chatbot, checkout features
+
+---
+
+### Slide 9: Thank You  
+- Questions?
+
+---
+
+# Summary
+
+| Deliverable                  | What to Include                                              |
+|-----------------------------|--------------------------------------------------------------|
+| **GitHub Repo**              | Full source code, README.md with setup and summary           |
+| **Project Report (Word/PDF)**| Detailed tech stack, architecture, challenges, sample queries |
+| **Presentation (PPT/PDF)**    | Slides per outline above including diagrams and demo points   |
+
+---
